@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.function.Function;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.minimarket.minimarket.security.config.JwtProperties;
