@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -15,7 +14,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.actuate.endpoint.SecurityContext;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -106,7 +104,7 @@ public class JwtAuthenticationFilterTest {
     // Prueba que valida que el JwtAuthenticationFilter no autentique al usuario si el JwtUtil
     // determina que el JWT adjuntado por el usuario no es valido
     @Test
-    public void debeFallarAutenticacionSiUsernameEsIncorrectoTest() throws Exception{
+    public void debeFallarAutenticacionSiJwtNoEsValidoTest() throws Exception{
         // Arrange
         String token = "token_valido";
         String username = "username";
