@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -26,6 +27,7 @@ public class Producto {
     private Double precio;
 
     @NotNull(message = "Debe ingresar el stock del producto")
+    @PositiveOrZero(message = "El stock del producto debe ser igual o mayor a 0")
     @Column(nullable = false)
     private Integer stock;
 
