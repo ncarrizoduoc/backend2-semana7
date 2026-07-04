@@ -72,10 +72,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/usuarios/**").hasAuthority(RolEnum.ADMIN.name()) // Solo administradores pueden realizar operaciones CRUD sobre usuarios
                         .requestMatchers("/api/inventario/**").hasAuthority(RolEnum.CAJERO.name()) // Solo cajeros pueden realizar operaciones sobre el inventario
                         .requestMatchers(HttpMethod.GET, "/api/categorias/**").permitAll() // Todos pueden ver las categorias de productos
-                        .requestMatchers("/api/categorias/**").hasAuthority(RolEnum.CAJERO.name()) // Solo cajeros pueden crear, modificar o eliminar categorias
+                        .requestMatchers("/api/categorias/**").hasAuthority(RolEnum.ADMIN.name()) // Solo administradores pueden crear, modificar o eliminar categorias
                         .requestMatchers("/api/ventas/**").hasAuthority(RolEnum.CAJERO.name()) //Solo el cajero puede gestionar ventas
                         .requestMatchers("/api/detalle-ventas/**").hasAuthority(RolEnum.CAJERO.name()) // Solo cajeros pueden ver o gestionar detalles de ventas
-                        .requestMatchers("/api/carrito/**").hasAuthority(RolEnum.CLIENTE.name()) // Solo clientes pueden administrar el carrito
+                        .requestMatchers("/api/carrito/**").hasAnyAuthority(RolEnum.CLIENTE.name(), RolEnum.ADMIN.name()) // Solo clientes y admin pueden administrar el carrito
                         .requestMatchers(
                             "/swagger-ui.html",
                             "/swagger-ui/**",
